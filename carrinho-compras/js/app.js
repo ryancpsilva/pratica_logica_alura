@@ -31,19 +31,12 @@ limpar = () => {
   carrinho.innerHTML = ""
   document.getElementById("valor-total").textContent = "R$0"
   document.getElementById("quantidade").value = 0;
+  totalGeral = 0
 }
 
 function adicionarItem(quant, nomeProduto, valor) {
   let nome = nomeProduto.split(" ")[0]
   let carrinhoProduto = document.getElementById("lista-produtos")
-  
-  if (document.getElementsByClassName("carrinho__produtos__produto").length != 0) {
-    for (i in document.getElementsByClassName("carrinho__produtos__produto")) {
-      if (document.getElementsByClassName("carrinho__produtos__produto")[i].classList.contains(`${nome}`) ) {
-        return carrinhoProduto += `<section class="carrinho__produtos__produto ${nome}"> <span class="texto-azul">${quant*2}x</span> ${nomeProduto} <span class="texto-azul">R$${valor*2}</span></section>` 
-      }
-    }
-  }
 
   return ` <section class="carrinho__produtos__produto ${nome}">
   <span class="texto-azul">${quant}x</span> ${nomeProduto} <span class="texto-azul">R$${valor}</span>
